@@ -17,18 +17,34 @@ function divide(a, b) {
 }
 
 function operate(a, b, op) {
-    switch (op) {
-        case 1:
-            add(a, b);
-            break;
-        case 2:
-            subtract(a, b);
-            break;
-        case 3:
-            multiply(a, b);
-            break;
-        case 4:
-            divide(a, b);
-            break;
+    if (op == "+") {
+        return add(a, b);
+    }
+    if (op == "-") {
+        return subtract(a, b);
+    }
+    if (op == "*") {
+        return multiply(a, b);
+    }
+    if (op == "/") {
+        return divide(a, b);
+    } else {
+        return null;
     }
 }
+
+console.log(operate(1, 2, "/"));
+
+let calcButton = document.querySelectorAll(".calc-button");
+let displayValue = document.querySelector(".display");
+console.log(calcButton);
+
+calcButton.forEach((button) => {
+    button.addEventListener("click", () => {
+        displayValue.append(button.textContent);
+        n1 = parseInt(button.textContent);
+        console.log("Button pressed: " + n1);
+    });
+});
+
+function display() {}
